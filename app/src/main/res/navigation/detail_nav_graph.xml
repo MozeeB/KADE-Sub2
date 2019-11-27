@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detail_nav_graph"
+    app:startDestination="@id/detailFragment2">
+    <fragment
+        android:id="@+id/detailFragment2"
+        android:name="com.zeeb.footballmatchschedule.screen.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment2_to_mainActivity"
+            app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/action_detailFragment2_to_detailMatchFragment"
+            app:destination="@id/detailMatchFragment" />
+        <action
+            android:id="@+id/action_detailFragment2_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.zeeb.footballmatchschedule.screen.home.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/detailMatchFragment"
+        android:name="com.zeeb.footballmatchschedule.screen.detail.detailmatch.DetailMatchFragment"
+        android:label="fragment_detail_match"
+        tools:layout="@layout/fragment_detail_match" >
+        <action
+            android:id="@+id/action_detailMatchFragment_to_detailFragment2"
+            app:destination="@id/detailFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/lastMatchFragment"
+        android:name="com.zeeb.footballmatchschedule.screen.detail.lastmatch.LastMatchFragment"
+        android:label="fragment_last_match"
+        tools:layout="@layout/fragment_last_match" >
+        <action
+            android:id="@+id/action_lastMatchFragment_to_detailMatchFragment"
+            app:destination="@id/detailMatchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nextMatchFragment"
+        android:name="com.zeeb.footballmatchschedule.screen.detail.nextmatch.NextMatchFragment"
+        android:label="fragment_next_match"
+        tools:layout="@layout/fragment_next_match" >
+        <action
+            android:id="@+id/action_nextMatchFragment_to_detailMatchFragment"
+            app:destination="@id/detailMatchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.zeeb.footballmatchschedule.screen.detail.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_detailFragment2"
+            app:destination="@id/detailFragment2" />
+        <action
+            android:id="@+id/action_searchFragment_to_detailMatchFragment"
+            app:destination="@id/detailMatchFragment" />
+    </fragment>
+</navigation>

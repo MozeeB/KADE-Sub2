@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screen.detail.detailmatch.DetailMatchFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backDetailMatchFragmentIV"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:src="@drawable/ic_arrow_back_black_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_110sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/strEventDetailMatchTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/chicago_bulls_vs_detroit_pistons"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/intHomeScoreDetailMatchTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:text="@string/_0"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_50sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/strEventDetailMatchTV"
+                app:layout_constraintTop_toBottomOf="@+id/strEventDetailMatchTV" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tanda"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_40sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/intHomeScoreDetailMatchTV"
+                app:layout_constraintEnd_toEndOf="@+id/strEventDetailMatchTV"
+                app:layout_constraintStart_toStartOf="@+id/strEventDetailMatchTV"
+                app:layout_constraintTop_toTopOf="@+id/intHomeScoreDetailMatchTV" />
+
+            <TextView
+                android:id="@+id/intAwayScoreDetailMatchTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_30sdp"
+                android:text="@string/_0"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_50sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/intHomeScoreDetailMatchTV"
+                app:layout_constraintEnd_toEndOf="@+id/strEventDetailMatchTV"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/strEventDetailMatchTV" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/strLeagueDetailMatchTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        tools:text="NBA"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/strEventDownDetailMatchTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Chicago Bulls vs Detroit Pistons"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintEnd_toEndOf="@+id/strLeagueDetailMatchTV"
+        app:layout_constraintStart_toStartOf="@+id/strLeagueDetailMatchTV"
+        app:layout_constraintTop_toBottomOf="@+id/strLeagueDetailMatchTV" />
+
+    <TextView
+        android:id="@+id/dateEventDetailMatchTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="2019-11-21"
+        app:layout_constraintEnd_toEndOf="@+id/strEventDownDetailMatchTV"
+        app:layout_constraintStart_toStartOf="@+id/strEventDownDetailMatchTV"
+        app:layout_constraintTop_toBottomOf="@+id/strEventDownDetailMatchTV" />
+
+    <ImageView
+        android:id="@+id/logoHomeDetailMatchFragmentIV"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:src="@drawable/ic_broken_image_black_24dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="@+id/strHomeTeamDetailMatchTV"
+        app:layout_constraintStart_toStartOf="@+id/strHomeTeamDetailMatchTV"
+        app:layout_constraintTop_toBottomOf="@+id/dateEventDetailMatchTV" />
+
+    <TextView
+        android:id="@+id/strHomeTeamDetailMatchTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        tools:text="Chicago Bulls"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoHomeDetailMatchFragmentIV" />
+
+    <ImageView
+        android:id="@+id/logoAwayDetailMatchFragmentIV"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:src="@drawable/ic_broken_image_black_24dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="@+id/strAwayTeamDetailMatchTV"
+        app:layout_constraintStart_toStartOf="@+id/strAwayTeamDetailMatchTV"
+        app:layout_constraintTop_toBottomOf="@+id/dateEventDetailMatchTV" />
+
+    <TextView
+        android:id="@+id/strAwayTeamDetailMatchTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        tools:text="Detroit Pistons"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/strHomeTeamDetailMatchTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/strHomeTeamDetailMatchTV" />
+
+    <TextView
+        android:id="@+id/intHomeScoreDownDetailMatchTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="0"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_20ssp"
+        app:layout_constraintEnd_toEndOf="@+id/strHomeTeamDetailMatchTV"
+        app:layout_constraintStart_toStartOf="@+id/strHomeTeamDetailMatchTV"
+        app:layout_constraintTop_toBottomOf="@+id/strHomeTeamDetailMatchTV" />
+
+    <TextView
+        android:id="@+id/scoreTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/score"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/intHomeScoreDownDetailMatchTV"
+        app:layout_constraintEnd_toEndOf="@+id/strAwayTeamDetailMatchTV"
+        app:layout_constraintStart_toStartOf="@+id/strHomeTeamDetailMatchTV"
+        app:layout_constraintTop_toBottomOf="@+id/strHomeTeamDetailMatchTV" />
+
+    <TextView
+        android:id="@+id/intAwayScoreDownDetailMatchTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="0"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_20sdp"
+        app:layout_constraintEnd_toEndOf="@+id/strAwayTeamDetailMatchTV"
+        app:layout_constraintStart_toStartOf="@+id/strAwayTeamDetailMatchTV"
+        app:layout_constraintTop_toBottomOf="@+id/strAwayTeamDetailMatchTV" />
+
+    <TextView
+        android:id="@+id/strHomeGoalDetailsDetailMatchTV"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_40sdp"
+        tools:text="69':Own  Jonjo Shelvey;61': Adam Lallana;51': Adam Lallana;33': Alberto Moreno;"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="@+id/strHomeTeamDetailMatchTV"
+        app:layout_constraintStart_toStartOf="@+id/strHomeTeamDetailMatchTV"
+        app:layout_constraintTop_toBottomOf="@+id/intHomeScoreDownDetailMatchTV" />
+
+    <TextView
+        android:id="@+id/goalTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/goal"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/strHomeGoalDetailsDetailMatchTV"
+        app:layout_constraintEnd_toEndOf="@+id/scoreTV"
+        app:layout_constraintStart_toStartOf="@+id/scoreTV"
+        app:layout_constraintTop_toTopOf="@+id/strHomeGoalDetailsDetailMatchTV" />
+
+    <TextView
+        android:id="@+id/strAwayGoalDetailsDetailMatchTV"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_20sdp"
+        tools:text="52': Gylfi Sigurdsson;"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/goalTV"
+        app:layout_constraintEnd_toEndOf="@+id/strAwayTeamDetailMatchTV"
+        app:layout_constraintStart_toStartOf="@+id/strAwayTeamDetailMatchTV"
+        app:layout_constraintTop_toTopOf="@+id/goalTV" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

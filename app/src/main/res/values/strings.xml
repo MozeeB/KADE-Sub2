@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">Football Match Schedule</string>
+    <string name="chicago_bulls_vs_detroit_pistons">Chicago Bulls vs Detroit Pistons</string>
+    <string name="tanda">:</string>
+    <string name="_0">0</string>
+    <string name="score">Score</string>
+    <string name="goal">Goal</string>
+    <string name="football_match_schedule">Football Match Schedule</string>
+    <string name="football_club_indonesia">Football Club Indonesia</string>
+    <string name="man_united_vs_brighton">Man United vs Brighton</string>
+    <string name="english_premier_league">English Premier League</string>
+    <string name="_1">1</string>
+    <string name="_2019_11_10">2019-11-10</string>
+
+
+    <string-array name="id_league">
+        <item>4328</item>
+        <item>4334</item>
+        <item>4331</item>
+        <item>4332</item>
+        <item>4335</item>
+        <item>4346</item>
+        <item>4344</item>
+        <item>4356</item>
+        <item>4330</item>
+        <item>4396</item>
+    </string-array>
+
+    <string-array name="daftar_club">
+        <item name="english_premier_league">English Premier League</item>
+        <item name="french_ligue_1">French Ligue 1</item>
+        <item name="german_bundesliga">German Bundesliga</item>
+        <item name="italian_serie_a">Italian Serie A</item>
+        <item name="spanish_la_liga">Spanish La Liga</item>
+        <item name="american_mayor_league">American Mayor League</item>
+        <item name="protugeuese_premiera_liga">Protugeuese Premiera Liga</item>
+        <item name="australian_a_league">Australian A League</item>
+        <item name="scotish_premier_league">Scotish Premier League</item>
+        <item name="english_league_1">English League 1</item>
+    </string-array>
+
+    <array name="daftar_foto">
+        <item>@drawable/english_premier_league</item>
+        <item>@drawable/french_ligue_1</item>
+        <item>@drawable/german_bundesliga</item>
+        <item>@drawable/italian_serie_a</item>
+        <item>@drawable/spanish_la_liga</item>
+        <item>@drawable/american_mayor_league</item>
+        <item>@drawable/portugeuese_premiera_liga</item>
+        <item>@drawable/australian_a_league</item>
+        <item>@drawable/scotish_premier_league</item>
+        <item>@drawable/english_league_1</item>
+    </array>
+
+    <!-- TODO: Remove or change this placeholder text --><![CDATA[
+    resources>
+]]>
+</resources>
