@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_homeFragment_to_detailActivity"
             app:destination="@id/detailActivity" />
+        <action
+            android:id="@+id/action_homeFragment_to_favoriteActivity"
+            app:destination="@id/favoriteActivity" />
     </fragment>
     <activity
         android:id="@+id/detailActivity"
         android:name="com.zeeb.footballmatchschedule.screen.detail.DetailActivity"
         android:label="activity_detail"
         tools:layout="@layout/activity_detail" />
+    <activity
+        android:id="@+id/favoriteActivity"
+        android:name="com.zeeb.footballmatchschedule.screen.favorite.FavoriteActivity"
+        android:label="activity_favorite"
+        tools:layout="@layout/activity_favorite" />
 </navigation>

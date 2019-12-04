@@ -19,7 +19,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
 
-
         buildConfigField "String", "URL_API", "\"https://www.thesportsdb.com/api/v1/json/1/\""
     }
     buildTypes {
@@ -27,6 +26,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    androidExtensions {
+        experimental = true
     }
 }
 
@@ -73,5 +75,10 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
 
     implementation "com.orhanobut:hawk:2.0.1"
+
+    implementation "org.jetbrains.anko:anko-sqlite:$anko_version"
+
+
+
 
 }

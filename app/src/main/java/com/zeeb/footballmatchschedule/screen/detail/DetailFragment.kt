@@ -38,6 +38,8 @@ class DetailFragment : Fragment(), View.OnClickListener {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        progressBarHolderLoginCL.visibility = View.VISIBLE
+
         detailFragmentVP.adapter = MyPagerAdapter(this.activity!!.supportFragmentManager)
         tabDetailFragmentTL.setupWithViewPager(detailFragmentVP)
 
@@ -56,6 +58,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
         searchDetailFragmentIV.setOnClickListener(this)
 
 
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -67,10 +70,14 @@ class DetailFragment : Fragment(), View.OnClickListener {
                 descriptionDetailFragmentTV.text = onState.footballDetailDomain[0].strDescriptionEN
                 countryDetailFragmentTV.text = onState.footballDetailDomain[0].strCountry
                 Picasso.get().load(onState.footballDetailDomain[0].strLogo).into(ligaDetailFragmentIV)
+                progressBarHolderLoginCL.visibility = View.GONE
+
             }
 
             is ErrorState -> {
                 Toast.makeText(context, "Detail Failed To Load", Toast.LENGTH_LONG).show()
+                progressBarHolderLoginCL.visibility = View.GONE
+
             }
         }
     }

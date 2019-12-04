@@ -19,8 +19,19 @@ class NextMatchItemView(private val nextMatchDomain: LastMatchDomain) : Item() {
 
         strEvent.text = nextMatchDomain.strEvent
         strLeague.text = nextMatchDomain.strLeague
-        intHomeScore.text = "0"
-        intAwayScore.text = "0"
+        val homeScore = nextMatchDomain.intHomeScore
+        val awayScore =  nextMatchDomain.intAwayScore
+
+        if (homeScore == null){
+            intHomeScore.text = "0"
+        }else{
+            intHomeScore.text = homeScore
+        }
+        if (awayScore == null){
+            intAwayScore.text = "0"
+        }else{
+            intAwayScore.text = awayScore
+        }
 
         dateEvent.text = nextMatchDomain.dateEvent
 
@@ -34,9 +45,7 @@ class NextMatchItemView(private val nextMatchDomain: LastMatchDomain) : Item() {
 
         }
 
-
     }
-
 
     override fun getLayout(): Int = R.layout.item_match
 

@@ -59,8 +59,11 @@ fun createOkHttpClient(interceptor: GlobalInterceptor): OkHttpClient {
 
     val timeout = 60L
     return OkHttpClient.Builder()
-        .connectTimeout(timeout, TimeUnit.SECONDS)
-        .readTimeout(timeout, TimeUnit.SECONDS)
+//        .connectTimeout(timeout, TimeUnit.SECONDS)
+//        .readTimeout(timeout, TimeUnit.SECONDS)
+        .connectTimeout(1, TimeUnit.MINUTES)
+        .readTimeout(30, TimeUnit.SECONDS)
+        .writeTimeout(15, TimeUnit.SECONDS)
         .addInterceptor(httpLoggingInterceptor)
         .addInterceptor(interceptor)
         .build()

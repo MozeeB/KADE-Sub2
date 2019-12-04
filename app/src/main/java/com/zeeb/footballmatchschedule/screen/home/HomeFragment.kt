@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
@@ -42,6 +43,10 @@ class HomeFragment : Fragment() {
         rv_league.apply {
             layoutManager = layoutManagers
             adapter = footballAdapter
+        }
+
+        toFavHomeFragmentIB.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_favoriteActivity)
         }
 
     }
