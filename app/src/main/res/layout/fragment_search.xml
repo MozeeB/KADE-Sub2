@@ -19,12 +19,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <SearchView
+            <androidx.appcompat.widget.SearchView
                 android:id="@+id/searchFragmentSV"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/_30sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
+                app:queryHint="Search"
+                app:searchIcon="@null"
+                app:iconifiedByDefault="false"
                 android:background="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
