@@ -1,5 +1,6 @@
 package com.zeeb.footballmatchschedule.screen.detail
 
+import com.zeeb.footballmatchschedule.data.repository.FootballDetailRepository
 import com.zeeb.footballmatchschedule.data.response.TopDetailResponse
 import com.zeeb.footballmatchschedule.data.service.GlobalService
 import io.reactivex.Single
@@ -7,7 +8,6 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 
@@ -24,13 +24,12 @@ class DetailVMTest{
     private lateinit var topResponse: TopDetailResponse
 
     @Mock
-    private lateinit var detailVM: DetailVM
+    private lateinit var repository: FootballDetailRepository
 
 
     @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
-        detailVM = Mockito.mock(DetailVM::class.java)
     }
 
     @Test
@@ -41,7 +40,7 @@ class DetailVMTest{
             `when`(service.getDetailLiga(league))
         }
             .thenReturn(Single.just(responseTeams))
-        detailVM.getDetailLiga(league)
+        repository.getDetailLiga(league)
 
 
     }

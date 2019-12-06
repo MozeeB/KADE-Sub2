@@ -45,7 +45,15 @@ class HomeFragmentTest{
             .perform(typeText("chelsea"))
         onView(isAssignableFrom(AutoCompleteTextView::class.java))
             .perform(pressImeActionButton())
-        Thread.sleep(3000)
+        Thread.sleep(2000)
+        onView(withId(R.id.searchFragmentRV)).check(matches(isDisplayed()))
+        Thread.sleep(1500)
+        onView(withId(R.id.searchFragmentRV)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(3))
+        onView(withId(R.id.searchFragmentRV)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
+        Thread.sleep(2000)
+
+
+
 
 
 

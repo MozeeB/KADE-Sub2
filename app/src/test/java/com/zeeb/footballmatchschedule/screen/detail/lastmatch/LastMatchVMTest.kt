@@ -8,7 +8,6 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 
@@ -24,13 +23,12 @@ class LastMatchVMTest{
     private lateinit var topResponse: TopLastMatchResponse
 
     @Mock
-    private lateinit var lastMatchVM: LastMatchVM
+    private lateinit var repository: LastMatchRepository
 
 
     @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
-        lastMatchVM = Mockito.mock(LastMatchVM::class.java)
     }
 
     @Test
@@ -41,7 +39,7 @@ class LastMatchVMTest{
             `when`(service.getLastMatch(match))
         }
             .thenReturn(Single.just(responseTeams))
-        lastMatchVM.getLastMatch(match)
+        repository.getLastMatch(match)
 
 
     }
