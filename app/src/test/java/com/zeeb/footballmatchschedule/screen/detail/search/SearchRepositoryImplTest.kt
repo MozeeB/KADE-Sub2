@@ -26,7 +26,7 @@ class SearchRepositoryImplTest{
     }
 
     @Test
-    fun getDetailLeague() {
+    fun searchMatch() {
             `when`(globalService.searchMatch("madrid")).thenReturn(Single.just(
                 TopSearchResponse(
                     listOf(

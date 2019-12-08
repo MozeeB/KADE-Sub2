@@ -30,7 +30,7 @@ class DetailMatchRepositoryImplTest {
     }
 
     @Test
-    fun getDetailLeague() {
+    fun getDetailMatch() {
         `when`(globalService.getDetailMatch("441613")).thenReturn(
             Single.just(
                 TopDetailMatchResponse(

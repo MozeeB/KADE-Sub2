@@ -26,7 +26,7 @@ class NextMatchRepositoryImplTest {
     }
 
     @Test
-    fun getDetailLeague() {
+    fun getNextMatch() {
         `when`(globalService.getNextMatch("4387")).thenReturn(
             Single.just(
                 TopNextMatchResponse(

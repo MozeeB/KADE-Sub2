@@ -27,7 +27,7 @@ class LastMatchRepositoryImplTest {
     }
 
     @Test
-    fun getDetailLeague() {
+    fun getLastMatch() {
         `when`(globalService.getLastMatch("4387")).thenReturn(
             Single.just(
                 TopLastMatchResponse(
