@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_favoriteFragment_to_detailMatchFragment2"
             app:destination="@id/detailMatchFragment2" />
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailTeamsFragment2"
+            app:destination="@id/detailTeamsFragment2" />
     </fragment>
     <activity
         android:id="@+id/mainActivity2"
@@ -27,4 +30,9 @@
         android:name="com.zeeb.footballmatchschedule.screen.detail.detailmatch.DetailMatchFragment"
         android:label="fragment_detail_match"
         tools:layout="@layout/fragment_detail_match" />
+    <fragment
+        android:id="@+id/detailTeamsFragment2"
+        android:name="com.zeeb.footballmatchschedule.screen.detail.detailteam.DetailTeamsFragment"
+        android:label="fragment_detail_teams"
+        tools:layout="@layout/fragment_detail_teams" />
 </navigation>

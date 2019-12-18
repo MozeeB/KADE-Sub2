@@ -1,6 +1,6 @@
 package com.zeeb.footballmatchschedule.domain
 
-class TeamDomain(
+class TeamLogoDomain(
     val idTeam:String?,
     val strTeamBadge:String?
 )

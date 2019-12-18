@@ -8,7 +8,7 @@ import com.zeeb.footballmatchschedule.R
 import com.zeeb.footballmatchschedule.data.local.model.FavoriteLastMatch
 import kotlinx.android.synthetic.main.item_match.view.*
 
-class FavMovieItemView(private val favoriteLastMatch: FavoriteLastMatch) : Item() {
+class FavMatchItemView(private val favoriteLastMatch: FavoriteLastMatch) : Item() {
     override fun bind(viewHolder: ViewHolder, position: Int) {
         val strEvent = viewHolder.itemView.strEventItemMatchTV
         val strLeague = viewHolder.itemView.strLeagueItemMatchTV

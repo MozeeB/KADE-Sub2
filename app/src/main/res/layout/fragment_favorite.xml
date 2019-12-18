@@ -38,13 +38,23 @@
         app:layout_constraintStart_toEndOf="@+id/backFavIV"
         app:layout_constraintTop_toTopOf="@+id/backFavIV" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/favRV"
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/favFragmentVP"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/favFragmentTB" />
+        app:layout_constraintTop_toBottomOf="@+id/favFragmentTB">
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabFavFragmentTL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:tabTextColor="@android:color/white" />
+    </androidx.viewpager.widget.ViewPager>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

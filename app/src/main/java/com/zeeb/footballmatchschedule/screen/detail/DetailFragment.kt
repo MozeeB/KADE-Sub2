@@ -40,7 +40,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
         progressBarHolderLoginCL.visibility = View.VISIBLE
 
-        detailFragmentVP.adapter = MyPagerAdapter(this.activity!!.supportFragmentManager)
+        detailFragmentVP.adapter = MyPagerAdapter(childFragmentManager)
         tabDetailFragmentTL.setupWithViewPager(detailFragmentVP)
 
 

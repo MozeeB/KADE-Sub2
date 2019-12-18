@@ -3,15 +3,15 @@ package com.zeeb.footballmatchschedule.screen.detail.detailmatch
 import androidx.lifecycle.MutableLiveData
 import com.zeeb.footballmatchschedule.data.repository.DetailMatchRepository
 import com.zeeb.footballmatchschedule.domain.DetailMatchDomain
-import com.zeeb.footballmatchschedule.domain.TeamDomain
+import com.zeeb.footballmatchschedule.domain.TeamLogoDomain
 import com.zeeb.footballmatchschedule.helper.RxUtils
 import com.zeeb.footballmatchschedule.screen.base.BaseViewModel
 
 sealed class DetailMatchState
 data class ErrorState(var msg:String?) : DetailMatchState()
 data class DetailMatchDataLoaded(val detailMatchDomain: List<DetailMatchDomain>) : DetailMatchState()
-data class LogoHomeLoaded(val teamDomain: List<TeamDomain>) : DetailMatchState()
-data class LogoAwayLoaded(val teamDomain: List<TeamDomain>) : DetailMatchState()
+data class LogoHomeLoaded(val teamLogoDomain: List<TeamLogoDomain>) : DetailMatchState()
+data class LogoAwayLoaded(val teamLogoDomain: List<TeamLogoDomain>) : DetailMatchState()
 class DetailMatchVM (val repository: DetailMatchRepository) : BaseViewModel(){
 
     val detailMatchStatev = MutableLiveData<DetailMatchState>()

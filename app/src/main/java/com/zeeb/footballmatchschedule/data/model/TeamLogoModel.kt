@@ -1,6 +1,6 @@
 package com.zeeb.footballmatchschedule.data.model
 
-class TeamModel (
+class TeamLogoModel (
     val idTeam:String?,
     val strTeamBadge:String?
 )

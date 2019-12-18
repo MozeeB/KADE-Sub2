@@ -1,7 +1,7 @@
 package com.zeeb.footballmatchschedule.data.response
 
-import com.zeeb.footballmatchschedule.data.model.TeamModel
+import com.zeeb.footballmatchschedule.data.model.TeamsModel
 
-class TopTeamResponse(
-    val teams:List<TeamModel>
+data class TopTeamResponse (
+    val teams:List<TeamsModel>
 )

@@ -1,4 +1,4 @@
-package com.zeeb.footballmatchschedule.screen.detail.search
+package com.zeeb.footballmatchschedule.screen.detail.search.pertandingan
 
 import androidx.lifecycle.MutableLiveData
 import com.zeeb.footballmatchschedule.data.repository.SearchRepository
@@ -19,14 +19,19 @@ class SearchVM (val repository: SearchRepository) : BaseViewModel(){
                 .compose(RxUtils.applySingleAsync())
                 .subscribe({ result ->
                     if (result.isNotEmpty()){
-                        searchState.value = SearchDataLoaded(result.filter { it.strSport == "Soccer" })
+                        searchState.value =
+                            SearchDataLoaded(
+                                result.filter { it.strSport == "Soccer" })
                     }
                 }, this::onError)
         )
     }
 
     override fun onError(error: Throwable) {
-        searchState.value = ErrorState(error.localizedMessage)
+        searchState.value =
+            ErrorState(
+                error.localizedMessage
+            )
     }
 
 }

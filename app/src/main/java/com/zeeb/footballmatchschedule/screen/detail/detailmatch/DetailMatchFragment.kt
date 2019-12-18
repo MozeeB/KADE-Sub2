@@ -10,8 +10,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
-import com.orhanobut.hawk.Hawk
 import com.squareup.picasso.Picasso
 
 import com.zeeb.footballmatchschedule.R
@@ -93,12 +91,12 @@ class DetailMatchFragment : Fragment(), View.OnClickListener {
 
             }
             is LogoHomeLoaded ->{
-                Picasso.get().load(matchState.teamDomain[0].strTeamBadge).into(logoHomeDetailMatchFragmentIV)
+                Picasso.get().load(matchState.teamLogoDomain[0].strTeamBadge).into(logoHomeDetailMatchFragmentIV)
                 progressBarHolderLoginCL.visibility = View.GONE
 
             }
             is LogoAwayLoaded ->{
-                Picasso.get().load(matchState.teamDomain[0].strTeamBadge).into(logoAwayDetailMatchFragmentIV)
+                Picasso.get().load(matchState.teamLogoDomain[0].strTeamBadge).into(logoAwayDetailMatchFragmentIV)
                 progressBarHolderLoginCL.visibility = View.GONE
 
             }

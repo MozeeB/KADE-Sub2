@@ -3,6 +3,7 @@ package com.zeeb.footballmatchschedule.data.local.database
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import com.zeeb.footballmatchschedule.data.local.model.FavoriteLastMatch
+import com.zeeb.footballmatchschedule.data.local.model.FavoriteTeam
 import org.jetbrains.anko.db.*
 
 class FootballDatabaseHelper(ctx: Context) :
@@ -31,13 +32,28 @@ class FootballDatabaseHelper(ctx: Context) :
             FavoriteLastMatch.LEAGUE to TEXT,
             FavoriteLastMatch.ID_HOME_TEAM to TEXT,
             FavoriteLastMatch.ID_AWAY_TEAM to TEXT)
+
+        db.createTable(
+            FavoriteTeam.TABLE_FAV_TEAM, true,
+            FavoriteTeam.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+            FavoriteTeam.ID_TEAM to TEXT + UNIQUE,
+            FavoriteTeam.STR_TEAM to TEXT,
+            FavoriteTeam.STR_SPORT to TEXT,
+            FavoriteTeam.STR_LEAGUE to TEXT,
+            FavoriteTeam.ID_LEAGUE to TEXT,
+            FavoriteTeam.STR_TEAMBADGE to TEXT,
+            FavoriteTeam.STR_DESCRIPTION_EN to TEXT
+        )
+
+
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         db.dropTable(FavoriteLastMatch.TABLE_FAV_MATCH,true)
+
+        db.dropTable(FavoriteTeam.TABLE_FAV_TEAM, true)
     }
 
 }
-// Akses properti database untuk context
 val Context.database: FootballDatabaseHelper
     get() = FootballDatabaseHelper.getInstance(applicationContext)

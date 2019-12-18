@@ -6,25 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.ViewHolder
 
 import com.zeeb.footballmatchschedule.R
-import com.zeeb.footballmatchschedule.data.local.database.database
-import com.zeeb.footballmatchschedule.data.local.model.FavoriteLastMatch
-import com.zeeb.footballmatchschedule.helper.view.FavMovieItemView
 import kotlinx.android.synthetic.main.fragment_favorite.*
-import org.jetbrains.anko.db.classParser
-import org.jetbrains.anko.db.select
 
 /**
  * A simple [Fragment] subclass.
  */
 class FavoriteFragment : Fragment() {
-
-    private var adapterFavLastMatch = GroupAdapter<ViewHolder>()
 
 
     override fun onCreateView(
@@ -38,40 +27,15 @@ class FavoriteFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        showFavoriteMatch()
 
-        favRV.apply {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            adapter = adapterFavLastMatch
-        }
+        favFragmentVP.adapter = FavPagerAdapter(childFragmentManager)
+        tabFavFragmentTL.setupWithViewPager(favFragmentVP)
 
         backFavIV.setOnClickListener {
-            this.activity?.onBackPressed()
+            activity?.onBackPressed()
         }
 
     }
 
-    private fun showFavoriteMatch() {
-        context?.database?.use {
-            adapterFavLastMatch.clear()
-            val result = select(FavoriteLastMatch.TABLE_FAV_MATCH)
-            val favorite = result.parseList(classParser<FavoriteLastMatch>())
-            if (favorite.isEmpty()){
-                Toast.makeText(context, "No data Found" , Toast.LENGTH_LONG).show()
-            }else{
-                favorite.map {
-                    adapterFavLastMatch.add(FavMovieItemView(it))
-                    adapterFavLastMatch.notifyDataSetChanged()
-                }
-
-            }
-
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        showFavoriteMatch()
-    }
 
 }

@@ -1,4 +1,4 @@
-package com.zeeb.footballmatchschedule.screen.detail.search
+package com.zeeb.footballmatchschedule.screen.detail.search.pertandingan
 
 
 import android.os.Bundle
@@ -23,7 +23,7 @@ import org.koin.android.ext.android.inject
  */
 class SearchFragment : Fragment() , View.OnClickListener, SearchView.OnQueryTextListener {
 
-    private val vm:SearchVM by inject()
+    private val vm: SearchVM by inject()
 
     private val adapterSearch = GroupAdapter<ViewHolder>()
 

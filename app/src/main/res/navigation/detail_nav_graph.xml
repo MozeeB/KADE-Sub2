@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_detailFragment2_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_detailFragment2_to_detailTeamsFragment"
+            app:destination="@id/detailTeamsFragment" />
     </fragment>
     <activity
         android:id="@+id/mainActivity"
@@ -53,7 +56,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.zeeb.footballmatchschedule.screen.detail.search.SearchFragment"
+        android:name="com.zeeb.footballmatchschedule.screen.detail.search.pertandingan.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
@@ -62,5 +65,23 @@
         <action
             android:id="@+id/action_searchFragment_to_detailMatchFragment"
             app:destination="@id/detailMatchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailTeamsFragment"
+        android:name="com.zeeb.footballmatchschedule.screen.detail.detailteam.DetailTeamsFragment"
+        android:label="fragment_detail_teams"
+        tools:layout="@layout/fragment_detail_teams" >
+        <action
+            android:id="@+id/action_detailTeamsFragment_to_searchTeamFragment"
+            app:destination="@id/searchTeamFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchTeamFragment"
+        android:name="com.zeeb.footballmatchschedule.screen.detail.search.team.SearchTeamFragment"
+        android:label="fragment_search_team"
+        tools:layout="@layout/fragment_search_team" >
+        <action
+            android:id="@+id/action_searchTeamFragment_to_detailTeamsFragment"
+            app:destination="@id/detailTeamsFragment" />
     </fragment>
 </navigation>

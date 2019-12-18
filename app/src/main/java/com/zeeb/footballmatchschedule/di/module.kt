@@ -8,9 +8,13 @@ import com.zeeb.footballmatchschedule.data.service.GlobalInterceptor
 import com.zeeb.footballmatchschedule.data.service.GlobalService
 import com.zeeb.footballmatchschedule.screen.detail.DetailVM
 import com.zeeb.footballmatchschedule.screen.detail.detailmatch.DetailMatchVM
+import com.zeeb.footballmatchschedule.screen.detail.detailteam.DetailTeamVM
 import com.zeeb.footballmatchschedule.screen.detail.lastmatch.LastMatchVM
 import com.zeeb.footballmatchschedule.screen.detail.nextmatch.NextMatchVM
-import com.zeeb.footballmatchschedule.screen.detail.search.SearchVM
+import com.zeeb.footballmatchschedule.screen.detail.search.pertandingan.SearchVM
+import com.zeeb.footballmatchschedule.screen.detail.search.team.SearchTeamVM
+import com.zeeb.footballmatchschedule.screen.detail.standing.StandingVM
+import com.zeeb.footballmatchschedule.screen.detail.team.TeamVM
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.viewmodel.dsl.viewModel
@@ -36,20 +40,32 @@ val dataModule = module {
     single { NextMatchRepositoryImpl(get(), get()) as NextMatchRepository }
     single { DetailMatchRepositoryImpl(get(), get(), get()) as DetailMatchRepository }
     single { SearchRepositoryImpl(get(), get()) as SearchRepository }
+    single { StandingRepositoryImpl(get(), get()) as StandingRepository }
+    single { TeamsRepositoryImpl(get(), get()) as TeamsRepository }
 
     //mapper
     single { FootballDetailMapper() }
     single { LastMatchMapper() }
     single { DetailMatchMapper() }
     single { SearchMapper() }
-    single { TeamMapper() }
+    single { TeamLogoMapper() }
+    single { StandingMapper() }
+    single { TeamsMapper() }
 
     //viewmodel
     viewModel { DetailVM(get()) }
     viewModel { LastMatchVM(get()) }
     viewModel { NextMatchVM(get()) }
     viewModel { DetailMatchVM(get()) }
-    viewModel { SearchVM(get()) }
+    viewModel {
+        SearchVM(
+            get()
+        )
+    }
+    viewModel { StandingVM(get()) }
+    viewModel { TeamVM(get()) }
+    viewModel { DetailTeamVM(get()) }
+    viewModel { SearchTeamVM(get()) }
 
 }
 
@@ -57,7 +73,7 @@ fun createOkHttpClient(interceptor: GlobalInterceptor): OkHttpClient {
     val httpLoggingInterceptor = HttpLoggingInterceptor()
     httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
-    val timeout = 60L
+//    val timeout = 60L
     return OkHttpClient.Builder()
 //        .connectTimeout(timeout, TimeUnit.SECONDS)
 //        .readTimeout(timeout, TimeUnit.SECONDS)

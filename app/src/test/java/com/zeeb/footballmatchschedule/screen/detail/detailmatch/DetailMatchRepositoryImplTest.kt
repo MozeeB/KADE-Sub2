@@ -2,7 +2,7 @@ package com.zeeb.footballmatchschedule.screen.detail.detailmatch
 
 
 import com.zeeb.footballmatchschedule.data.mapper.DetailMatchMapper
-import com.zeeb.footballmatchschedule.data.mapper.TeamMapper
+import com.zeeb.footballmatchschedule.data.mapper.TeamLogoMapper
 import com.zeeb.footballmatchschedule.data.model.DetailMatchModel
 import com.zeeb.footballmatchschedule.data.repository.DetailMatchRepositoryImpl
 import com.zeeb.footballmatchschedule.data.response.TopDetailMatchResponse
@@ -18,7 +18,7 @@ class DetailMatchRepositoryImplTest {
 
     val globalService = Mockito.mock(GlobalService::class.java)
     val detailMatchMapper = Mockito.mock(DetailMatchMapper::class.java)
-    val teamMapper = Mockito.mock(TeamMapper::class.java)
+    val teamMapper = Mockito.mock(TeamLogoMapper::class.java)
 
     private lateinit var repository: DetailMatchRepositoryImpl
 

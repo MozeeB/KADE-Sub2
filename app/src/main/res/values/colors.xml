@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#ff3838</color>
     <color name="colorAccent">#D81B60</color>
     <color name="bluelight">#dfe4ea</color>
+    <color name="transparent">#99ff4d4d</color>
+
 </resources>
