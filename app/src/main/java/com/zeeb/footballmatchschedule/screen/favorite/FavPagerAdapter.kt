@@ -3,6 +3,7 @@ package com.zeeb.footballmatchschedule.screen.favorite
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.zeeb.footballmatchschedule.screen.favorite.team.FavTeamFragment
 
 class FavPagerAdapter(fm: FragmentManager): FragmentPagerAdapter(fm){
 

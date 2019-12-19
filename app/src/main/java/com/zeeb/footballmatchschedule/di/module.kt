@@ -1,7 +1,9 @@
 package com.zeeb.footballmatchschedule.di
 
+import androidx.room.Room
 import com.google.gson.GsonBuilder
 import com.zeeb.footballmatchschedule.BuildConfig
+import com.zeeb.footballmatchschedule.data.local.database.AppDatabase
 import com.zeeb.footballmatchschedule.data.mapper.*
 import com.zeeb.footballmatchschedule.data.repository.*
 import com.zeeb.footballmatchschedule.data.service.GlobalInterceptor
@@ -15,13 +17,17 @@ import com.zeeb.footballmatchschedule.screen.detail.search.pertandingan.SearchVM
 import com.zeeb.footballmatchschedule.screen.detail.search.team.SearchTeamVM
 import com.zeeb.footballmatchschedule.screen.detail.standing.StandingVM
 import com.zeeb.footballmatchschedule.screen.detail.team.TeamVM
+import com.zeeb.footballmatchschedule.screen.favorite.team.FavTeamVM
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidApplication
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 val appModule = module {
@@ -30,9 +36,21 @@ val appModule = module {
     single { createOkHttpClient(get()) }
     single { createWebService<GlobalService>(get(), BuildConfig.URL_API) }
 
+    single {
+        Room.databaseBuilder(
+            androidApplication(),
+            AppDatabase::class.java,
+            "football.db"
+        ).build()
+    }
+
 }
 
 val dataModule = module {
+
+    single { getExecutor() }
+
+    single { get<AppDatabase>().teamDao() }
 
     //repository
     single { FootballDetailRepositoryImpl(get(), get()) as FootballDetailRepository }
@@ -64,8 +82,9 @@ val dataModule = module {
     }
     viewModel { StandingVM(get()) }
     viewModel { TeamVM(get()) }
-    viewModel { DetailTeamVM(get()) }
+    viewModel { DetailTeamVM(get(), get(), get()) }
     viewModel { SearchTeamVM(get()) }
+    viewModel { FavTeamVM(get()) }
 
 }
 
@@ -83,6 +102,9 @@ fun createOkHttpClient(interceptor: GlobalInterceptor): OkHttpClient {
         .addInterceptor(httpLoggingInterceptor)
         .addInterceptor(interceptor)
         .build()
+}
+fun getExecutor(): Executor {
+    return Executors.newFixedThreadPool(2)
 }
 
 inline fun <reified T> createWebService(okHttpClient: OkHttpClient, url: String): T {

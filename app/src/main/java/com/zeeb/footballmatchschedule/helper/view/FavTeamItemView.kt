@@ -6,10 +6,10 @@ import com.squareup.picasso.Picasso
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import com.zeeb.footballmatchschedule.R
-import com.zeeb.footballmatchschedule.data.local.model.FavoriteTeam
+import com.zeeb.footballmatchschedule.domain.TeamsDomain
 import kotlinx.android.synthetic.main.item_teams.view.*
 
-class FavTeamItemView(private val favoriteTeam: FavoriteTeam) : Item() {
+class FavTeamItemView(private val favoriteTeam: TeamsDomain) : Item() {
     override fun bind(viewHolder: ViewHolder, position: Int) {
         val badge = viewHolder.itemView.badgeItemTeamsIV
         val title = viewHolder.itemView.titleItemTeamsTV

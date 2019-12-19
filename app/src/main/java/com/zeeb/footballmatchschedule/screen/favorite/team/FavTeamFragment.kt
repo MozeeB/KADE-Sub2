@@ -1,4 +1,4 @@
-package com.zeeb.footballmatchschedule.screen.favorite
+package com.zeeb.footballmatchschedule.screen.favorite.team
 
 
 import android.os.Bundle
@@ -6,18 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 
 import com.zeeb.footballmatchschedule.R
-import com.zeeb.footballmatchschedule.data.local.database.database
-import com.zeeb.footballmatchschedule.data.local.model.FavoriteTeam
 import com.zeeb.footballmatchschedule.helper.view.FavTeamItemView
 import kotlinx.android.synthetic.main.fragment_fav_team.*
-import org.jetbrains.anko.db.classParser
-import org.jetbrains.anko.db.select
+import org.koin.android.ext.android.inject
 
 /**
  * A simple [Fragment] subclass.
@@ -25,6 +22,8 @@ import org.jetbrains.anko.db.select
 class FavTeamFragment : Fragment() {
 
     private val adapterTeam = GroupAdapter<ViewHolder>()
+
+    private val vm:FavTeamVM by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,8 +37,8 @@ class FavTeamFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-
-        showFavoriteTeam()
+        vm.favTeamState.observe(this, starObserver)
+        vm.getTeamFav()
 
         rvFavTeam.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -47,26 +46,18 @@ class FavTeamFragment : Fragment() {
         }
     }
 
-    private fun showFavoriteTeam() {
-        context?.database?.use {
-            adapterTeam.clear()
-            val result = select(FavoriteTeam.TABLE_FAV_TEAM)
-            val favorite = result.parseList(classParser<FavoriteTeam>())
-            if (favorite.isEmpty()){
-                Toast.makeText(context, "No data Found" , Toast.LENGTH_LONG).show()
-            }else{
-                favorite.map {
+
+    private val starObserver = Observer<FavTeamState>{ response ->
+        when(response){
+            is FavTeamDataLoaded ->{
+                adapterTeam.clear()
+                response.teamsDomain.map {
                     adapterTeam.add(FavTeamItemView(it))
-                    adapterTeam.notifyDataSetChanged()
                 }
+            }
+            is ErrorState ->{
 
             }
-
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        showFavoriteTeam()
     }
 }

@@ -9,4 +9,5 @@ interface TeamsRepository {
     fun getDetailTeams(idTeam:String) : Single<List<TeamsDomain>>
 
     fun searchTeams(team:String) : Single<List<TeamsDomain>>
+
 }
